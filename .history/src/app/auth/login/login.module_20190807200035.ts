@@ -5,34 +5,32 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OnPhysicalPage } from './on-physical.page';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginPage } from './login.page';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 const routes: Routes = [
   {
     path: '',
-    component: OnPhysicalPage
+    component: LoginPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    IonicModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.threeBounce,
-      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
       backdropBorderRadius: '4px',
-      primaryColour: '#0000ff',
-      secondaryColour: '#0000ff',
+      primaryColour: '#0000ff', 
+      secondaryColour: '#0000ff', 
       tertiaryColour: '#0000ff'
-    }),
-    NgxPaginationModule,
+  }),
+    FormsModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [OnPhysicalPage],
+  declarations: [LoginPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class OnPhysicalPageModule {}
+export class LoginPageModule {}

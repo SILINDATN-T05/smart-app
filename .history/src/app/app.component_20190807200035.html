@@ -6,11 +6,12 @@
           <ion-title>Menu</ion-title>
         </ion-toolbar>
         <ion-toolbar>
-          <ion-item *ngIf="serv?.isLoggedIn">
+          <ion-item>
             <ion-avatar slot="start">
                 <ion-icon name="contact" size="large"></ion-icon>
+              <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
             </ion-avatar>
-            <ion-label>{{serv?.user?.firstName + ' ' + serv?.user?.lastName}}</ion-label>
+            <ion-label>Item Avatar</ion-label>
           </ion-item>
         </ion-toolbar>
       </ion-header>

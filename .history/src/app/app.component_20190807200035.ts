@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AuthService } from './shared/services/auth.service';
-import { User } from './shared/models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -18,31 +16,24 @@ export class AppComponent {
       url: '/on-physical',
       icon: 'people'
     },
-    // {
-    //   title: 'Not Auth',
-    //   url: '/not-authorised',
-    //   icon: 'people'
-    // },
+    {
+      title: 'Not Auth',
+      url: '/not-authorised',
+      icon: 'people'
+    },
     {
       title: 'Log Out',
       url: 'logout',
       icon: 'log-out'
     }
   ];
-  user: User = null;
-  isLoggedIn = false;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    public serv: AuthService
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
-    if (this.serv.isLoggedIn) {
-      this.user = this.serv.user;
-      this.isLoggedIn = this.serv.isLoggedIn;
-    }
   }
 
   initializeApp() {
@@ -52,6 +43,6 @@ export class AppComponent {
     });
   }
   logout() {
-    this.serv.logout();
+    alert('Log out clicked')
   }
 }

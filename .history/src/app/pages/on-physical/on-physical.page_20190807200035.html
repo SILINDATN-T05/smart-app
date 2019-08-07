@@ -26,21 +26,21 @@
     <ion-item-divider>
     </ion-item-divider>
     <ng-container *ngIf="isPatients; else elseBlock">
-      <ion-row *ngFor="let evaluation of evaluations | paginate: config">
+      <ion-row *ngFor="let patient of patients | paginate: config">
         <ion-col col-3>
-          {{evaluation?.patient?.fullName}}
+          {{patient.fullName}}
         </ion-col>
         <ion-col col-3>
-          {{evaluation?.patient?.IdValue}}
+          {{patient.IdValue}}
         </ion-col>
         <ion-col col-3>
-          {{evaluation?.company?.name}}
+          {{patient.company}}
         </ion-col>
         <ion-col col-3>
-          {{evaluation.medicalType}}
+          {{patient.medicalType}}
         </ion-col>
       </ion-row>
-      <pagination-controls (pageChange)="pageChanged($event)" class="center"></pagination-controls>
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
     </ng-container>
     <ng-template #elseBlock>
       <ion-row justify-content-center>
@@ -53,7 +53,6 @@
       </ion-row>
     </ng-template>
   </ion-grid>
-  <ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '1px' }"></ngx-loading>
 </ion-content>
 <ion-footer>
   <ion-toolbar justify-content-center>

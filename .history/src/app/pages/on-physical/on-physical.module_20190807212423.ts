@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { OnPhysicalPage } from './on-physical.page';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 const routes: Routes = [
   {
@@ -21,14 +20,6 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.threeBounce,
-      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
-      backdropBorderRadius: '4px',
-      primaryColour: '#0000ff',
-      secondaryColour: '#0000ff',
-      tertiaryColour: '#0000ff'
-    }),
     NgxPaginationModule,
     RouterModule.forChild(routes)
   ],

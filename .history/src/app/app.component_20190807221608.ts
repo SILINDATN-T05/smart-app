@@ -29,8 +29,6 @@ export class AppComponent {
       icon: 'log-out'
     }
   ];
-  user: User = null;
-  isLoggedIn = false;
 
   constructor(
     private platform: Platform,
@@ -39,10 +37,6 @@ export class AppComponent {
     public serv: AuthService
   ) {
     this.initializeApp();
-    if (this.serv.isLoggedIn) {
-      this.user = this.serv.user;
-      this.isLoggedIn = this.serv.isLoggedIn;
-    }
   }
 
   initializeApp() {

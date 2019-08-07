@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     const vm = this;
     this.request.loginApp(form.form.value).subscribe(res => {
       if (res['code'] === '00') {
-        vm.request.user = res['data']['user'];
+        vm.request._user = res['data']['user'];
         vm.request.permissions = res['data']['permissions'];
         vm.request.isLoggedIn = true;
         vm.router.navigate(['/on-physical']);

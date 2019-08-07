@@ -4,28 +4,21 @@ import { tap } from "rxjs/operators";
 import { NativeStorage } from "@ionic-native/native-storage/ngx";
 import { EnvService } from "./env.service";
 import { User } from "../models/user.model";
-import { Router } from '@angular/router';
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   isLoggedIn = false;
-  user: User = null;
+  _user: any = null;
   permissions: any[] = [];
   token: any;
   constructor(
-    private router: Router,
     private http: HttpClient,
     private storage: NativeStorage,
     private env: EnvService
   ) {}
   loginApp(data: any) {
     return this.http.post(this.env.API_URL + "/api/service", data);
-  }
-  logout() {
-    this.storage.remove("token");
-    this.isLoggedIn = false;
-    this.router.navigate(['/login']);
   }
   getToken() {
     return this.storage.getItem("token").then(
@@ -55,6 +48,6 @@ export class AuthService {
     });
   }
   getEvaluations(data) {
-    return this.http.post(this.env.API_URL + '/api/patient/evaluations', data);
+    return this.http.post('', data);
   }
 }

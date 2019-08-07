@@ -6,9 +6,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class AlertService {
   constructor(private toastController: ToastController) { }
-  async presentToast(message: any, title: any = 'NOTE') {
+  async presentToast(message: any,title: any = 'NOTE') {
     const toast = await this.toastController.create({
-      message,
+      message: message,
       header: title,
       duration: 2000,
       position: 'top',

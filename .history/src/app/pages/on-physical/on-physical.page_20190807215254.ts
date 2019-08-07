@@ -8,7 +8,7 @@ import { IResponce } from 'src/app/shared/models/response.model';
   styleUrls: ['./on-physical.page.scss'],
 })
 export class OnPhysicalPage implements OnInit {
-  evaluations: any[] = [];
+  patients: any[] = [];
   isPatients = false;
   isLoading = false;
   config: { itemsPerPage: number; currentPage: number; totalItems: any; } = {totalItems: 0, itemsPerPage: 5, currentPage: 1};
@@ -16,7 +16,7 @@ export class OnPhysicalPage implements OnInit {
     this.config = {
       itemsPerPage: 5,
       currentPage: 1,
-      totalItems: this.evaluations.length
+      totalItems: this.patients.length
     };
   }
 
@@ -30,9 +30,8 @@ export class OnPhysicalPage implements OnInit {
     vm.isLoading = true;
     vm.serv.getEvaluations({query: {status: 'OPEN'}}).subscribe((res: IResponce) => {
       if (res.code === '00') {
-        vm.evaluations = res.detail;
-        vm.config.totalItems = vm.evaluations.length;
-        vm.isPatients = vm.evaluations.length > 0;
+        vm.patients = res.detail;
+        vm.isPatients = vm.patients.length > 0;
       }
       vm.isLoading = false;
     }, () => {

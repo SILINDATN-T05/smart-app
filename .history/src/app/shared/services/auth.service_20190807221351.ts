@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   isLoggedIn = false;
-  user: User = null;
+  _user: User = null;
   permissions: any[] = [];
   token: any;
   constructor(

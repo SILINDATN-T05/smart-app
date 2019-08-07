@@ -30,7 +30,6 @@ export class AppComponent {
     }
   ];
   user: User = null;
-  isLoggedIn = false;
 
   constructor(
     private platform: Platform,
@@ -39,10 +38,7 @@ export class AppComponent {
     public serv: AuthService
   ) {
     this.initializeApp();
-    if (this.serv.isLoggedIn) {
-      this.user = this.serv.user;
-      this.isLoggedIn = this.serv.isLoggedIn;
-    }
+    this.user = this.serv._user;
   }
 
   initializeApp() {

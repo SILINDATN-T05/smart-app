@@ -24,8 +24,8 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-.center, .ngx-pagination {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
