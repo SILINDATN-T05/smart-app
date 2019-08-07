@@ -1,5 +1,8 @@
 {
-  "name": "sidemenu",
-  "integrations": {},
+  "name": "blue-collar-occupational-health",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

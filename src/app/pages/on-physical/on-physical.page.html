@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ON PHYSICAL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        Name & Surname
+      </ion-col>
+      <ion-col col-3>
+        ID Number
+      </ion-col>
+      <ion-col col-3>
+        Company
+      </ion-col>
+      <ion-col col-3>
+        Type
+      </ion-col>
+    </ion-row>
+    <ion-item-divider>
+    </ion-item-divider>
+    <ng-container *ngIf="isPatients; else elseBlock">
+      <ion-row *ngFor="let patient of patients | paginate: config">
+        <ion-col col-3>
+          {{patient.fullName}}
+        </ion-col>
+        <ion-col col-3>
+          {{patient.IdValue}}
+        </ion-col>
+        <ion-col col-3>
+          {{patient.company}}
+        </ion-col>
+        <ion-col col-3>
+          {{patient.medicalType}}
+        </ion-col>
+      </ion-row>
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </ng-container>
+    <ng-template #elseBlock>
+      <ion-row justify-content-center>
+        <ion-col col-12 justify-content-center>
+          <ion-icon name="clipboard" color="primary" class="center"></ion-icon>
+          <ion-item  class="center">
+            No Patients for physical examination
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar justify-content-center>
+    <ion-item>
+      <img src="./../../../assets/img/logo-2.jpeg" width="120" class="center">
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

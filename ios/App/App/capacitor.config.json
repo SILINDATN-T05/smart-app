@@ -1,0 +1,10 @@
+{
+  "appId": "blue.collar.occupational.health",
+  "appName": "Blue Collar Occupational Health",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "server": {
+    "url": "http://10.133.160.212:8100"
+  }
+}

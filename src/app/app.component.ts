@@ -12,14 +12,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: 'On Physical',
+      url: '/on-physical',
+      icon: 'people'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Not Auth',
+      url: '/not-authorised',
+      icon: 'people'
+    },
+    {
+      title: 'Log Out',
+      url: 'logout',
+      icon: 'log-out'
     }
   ];
 
@@ -36,5 +41,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  logout() {
+    alert('Log out clicked')
   }
 }

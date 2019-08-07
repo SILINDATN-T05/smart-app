@@ -1,0 +1,7 @@
+{
+  "appId": "blue.collar.occupational.health",
+  "appName": "Blue Collar Occupational Health",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
