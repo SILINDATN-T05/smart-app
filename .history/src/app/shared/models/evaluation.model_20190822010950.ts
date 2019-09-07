@@ -1,0 +1,45 @@
+import { IPatient } from './patient.interface';
+import { ICompany } from './company.interface';
+import { IUser } from './user.interface';
+
+export interface IEvaluation {
+    audioTest: any;
+audioTestId: number | string;
+cOFIssued: string;
+checkIn: boolean;
+comments: string;
+company: ICompany;
+companyId: number | string;
+createdAt: Date;
+data: any;
+dateIssued: Date;
+declaration: string;
+doctorReviewDate: Date;
+evaluationDate: Date;
+expiryDate: Date;
+forMobile: any;
+id: number | string;
+keystone: any;
+keystoneId: number | string;
+lungFunctionTest: any;
+lungFunctionTestId: any;
+medicalType: string;
+mobileUnit: string;
+mobileUnitId: string;
+nurse: IUser[];
+otherMedicalType: string;
+otherMedicalTypeId: number | string;
+patient: IPatient;
+patientId: number | string;
+referredBy: IUser;
+referredById: number | string;
+referredToDoctor: string;
+restriction: any;
+restrictionId: number | string;
+status: string;
+technician: IUser[];
+updatedAt: Date;
+visionTest: any;
+visionTestId: number | string;
+wAHDeclaration: string;
+}

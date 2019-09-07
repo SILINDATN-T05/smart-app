@@ -1,0 +1,72 @@
+<ion-content padding>
+  <div *ngIf="isShedule">
+    <h3>{{ info.title }}</h3>
+    <p>Schedule the {{ info.name }} for an evaluation below:</p>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime
+        displayFormat="MM/DD/YYYY"
+        pickerFormat="MM DD YYYY"
+        [formControl]="date"
+        (ionChange)="evaluateDate($event)"
+        [min]="minDate"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type of Medical</ion-label>
+      <ion-select [(value)]="selected">
+        <ion-select-option value="Pre-Employment"
+          >Pre-Employment</ion-select-option
+        >
+        <ion-select-option value="Baseline">Baseline</ion-select-option>
+        <ion-select-option value="Transfer">Transfer</ion-select-option>
+        <ion-select-option value="Periodical">Periodical</ion-select-option>
+        <ion-select-option value="Exit">Exit</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="pull-right">
+      <ion-button
+        size="large"
+        color="primary"
+        *ngIf="!company.paymentFirst || !isToday"
+        (click)="createEval()"
+        >Schedule</ion-button
+      >
+      <ion-button
+        size="large"
+        color="primary"
+        *ngIf="isToday && company.paymentFirst"
+        (click)="switchContent()"
+        >Schedule</ion-button
+      >
+      <ion-button size="large" (click)="onNoClick()">Skip</ion-button>
+    </div>
+  </div>
+  <div *ngIf="!isShedule">
+    <h3>{{ info.title }}</h3>
+    <p>Schedule the {{ info.name }} for an evaluation below:</p>
+    <div class="pull-right">
+      <ion-button
+        size="large"
+        color="primary"
+        (click)="createEval('ON-PHYSICAL')"
+        >Take Payment</ion-button
+      >
+      <ion-button size="large" color="accent" (click)="switchContent()"
+        >Re-Schedule</ion-button
+      >
+      <ion-button
+        size="large"
+        color="warn"
+        (click)="createEval('PAYMENT-REQUIRED')"
+        >Skip</ion-button
+      >
+      <ion-button size="large" (click)="onNoClick()">Cancel</ion-button>
+    </div>
+  </div>
+  <ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '14px' }"
+  ></ngx-loading>
+</ion-content>

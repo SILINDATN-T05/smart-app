@@ -1,0 +1,18 @@
+<form [formGroup]="companyForm">
+    <ion-item>
+      <ion-input placeholder="Company Name" formControlName="name" oninput="this.value = this.value.toUpperCase()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Telephone" formControlName="telephone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Fax" formControlName="fax"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="E-Mail" formControlName="email"></ion-input>
+    </ion-item>
+  </form>
+  <ion-button  size="large" color="primary" (click)="createCompany()">Save</ion-button>
+  <ion-button  size="large" (click)="onNoClick()">Close</ion-button>
+  <ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  

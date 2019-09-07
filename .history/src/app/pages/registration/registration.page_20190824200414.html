@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>REGISTRATION</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="patientForm" (ngSubmit)="createPatientFile()">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-label>Select a Title</ion-label>
+              <ion-select formControlName="title" value="Mr" okText="Okay" cancelText="Dismiss"  required>
+                <ion-select-option value="Mr">Mr</ion-select-option>
+                <ion-select-option value="Mrs">Mrs</ion-select-option>
+                <ion-select-option value="Ms">Ms</ion-select-option>
+                <ion-select-option value="Miss">Miss</ion-select-option>
+                <ion-select-option value="Dr">Dr</ion-select-option>
+                <ion-select-option value="Prof">Prof</ion-select-option>
+                <ion-select-option value="Adv">Adv</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Marital Status</ion-label>
+              <ion-select formControlName="maritalStatus" value="Single" okText="Okay" cancelText="Dismiss"  required>
+                <ion-select-option value="Single">Single</ion-select-option>
+                <ion-select-option value="Married">Married</ion-select-option>
+                <ion-select-option value="Divorced">Divorced</ion-select-option>
+                <ion-select-option value="Widow">Widow</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="initials" type="text" placeholder="Initials"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="firstName" type="text" placeholder="First Name"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="surname" type="text" placeholder="Last Name"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Identity Type</ion-label>
+              <ion-select formControlName="idType" value="IDNumber" okText="Okay" cancelText="Dismiss"
+              (ionChange)="changeSelect($event.target.value)"  required>
+              <ion-select-option value="IDNumber">South African ID</ion-select-option>
+              <ion-select-option value="PassportNumber"> Passport Number</ion-select-option>
+              <ion-select-option value="PermitNumber">Work Permit Number</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="IdValue" [placeholder]="identity" [type]="type"  required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Date of Birth</ion-label>
+              <ngx-combo-datepicker
+                [yearOrder]="'desc'"
+                [attrsDate]="{ class: 'form-control dropdown' }"
+                [attrsMonth]="{ class: 'form-control dropdown' }"
+                [attrsYear]="{ class: 'form-control dropdown' }"
+                [maxDate]="today"
+                placeholder="Date of Birth"
+                formControlName="dob"
+                required
+              ></ngx-combo-datepicker>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="email" type="email" placeholder="E-Mail"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="mobileNumber" type="text" placeholder="Mobile Number"  required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Company</ion-label>
+                <ion-select formControlName="companyId" value="1" okText="Okay" cancelText="Dismiss"
+                (ionChange)="addCompany($event.target.value)"  required>
+                <ion-select-option value="0">New Company</ion-select-option>
+                <ion-select-option *ngFor="let company of companies" [value]="company.id"> {{ company.name }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="position" type="text" placeholder="Position"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="department" type="text" placeholder="Department"  required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="patientForm.invalid" expand="block">Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '1px' }"></ngx-loading>
+</ion-content>
+<ion-footer>
+  <ion-toolbar justify-content-center>
+    <ion-item>
+      <img src="./../../../assets/img/logo-2.jpeg" width="120" class="center">
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

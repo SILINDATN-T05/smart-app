@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Questionares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let question of questions">
+        <ion-col col-8>{{question.Question}}</ion-col>
+        <ion-col col-4>
+            <ion-input *ngIf="question.QuestionResponseType !== 'check'" [type]="question.QuestionResponseType" [(ngModel)]="question.QuestionResponse"></ion-input>
+            <ion-checkbox *ngIf="question.QuestionResponseType === 'check'" color="primary" [(ngModel)]="question.QuestionResponse"></ion-checkbox>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-button expand="block" size="large" color="primary" (click)="onSave()">Save</ion-button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
